@@ -1,0 +1,16 @@
+.bundle
+asterisk-raspbian/*
+asterisk-raspbian
+log/*.log
+*.log
+tmp/**/*
+tmp/*
+log/*
+log
+Gemfile.lock
+doc/api
+doc/app
+*.swp
+*.swo
+*~
+.DS_Store
