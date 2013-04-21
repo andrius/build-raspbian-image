@@ -28,8 +28,10 @@ I strictly recommend to install apt-cacher-ng (apt-get install apt-cacher-ng), t
 Install minimal set of packages:
 ./install.sh
 
-Run build_raspbian_sd_card.sh script:
+Run build_raspbian_sd_card.sh script, do burn your SD card
 
-	./build_raspbian_sd_card.sh /dev/sdX # burns to your card
+	./build_raspbian_sd_card.sh /dev/sdX
 
-	./build_raspbian_sd_card.sh # burns to image file, find it in /tmp/rpi/
+OR to create IMG file (you'll find it under /tmp/rpi folder)
+
+	./build_raspbian_sd_card.sh
