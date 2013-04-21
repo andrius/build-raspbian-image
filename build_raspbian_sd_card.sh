@@ -55,7 +55,6 @@
 
 deb_mirror="http://archive.raspbian.org/raspbian"
 deb_local_mirror="http://localhost:3142/archive.raspbian.org/raspbian"
-#deb_local_mirror="http://debian.kmp.or.at:3142/debian"
 
 bootsize="64M"
 deb_release="wheezy"
@@ -149,7 +148,6 @@ mount -t proc none $rootfs/proc
 mount -t sysfs none $rootfs/sys
 mount -o bind /dev $rootfs/dev
 mount -o bind /dev/pts $rootfs/dev/pts
-mount -o bind /usr/src/raspberrypi/asterisk-raspbian $rootfs/usr/src/asterisk
 
 cd $rootfs
 
@@ -233,7 +231,6 @@ sleep 15
 
 umount -l $bootp
 
-umount -l $rootfs/usr/src/asterisk
 umount -l $rootfs/dev/pts
 umount -l $rootfs/dev
 umount -l $rootfs/sys
