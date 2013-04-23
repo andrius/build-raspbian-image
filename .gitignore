@@ -1,6 +1,8 @@
 .bundle
 asterisk-raspbian/*
 asterisk-raspbian
+delivery/*
+!delivery/README.md
 log/*.log
 *.log
 tmp/**/*
