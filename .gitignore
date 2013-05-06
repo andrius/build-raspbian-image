@@ -1,8 +1,9 @@
 .bundle
-asterisk-raspbian/*
-asterisk-raspbian
 delivery/*
 !delivery/README.md
+rpi/*/*
+rpi/*
+rpi
 log/*.log
 *.log
 tmp/**/*
