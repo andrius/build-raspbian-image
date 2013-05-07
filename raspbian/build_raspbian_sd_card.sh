@@ -204,9 +204,10 @@ echo "#!/bin/bash
 debconf-set-selections /debconf.set
 rm -f /debconf.set
 
+cd /usr/src/delivery
 apt-get update
 apt-get -y install git-core binutils ca-certificates
-wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
+wget --continue https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
 chmod +x /usr/bin/rpi-update
 mkdir -p /lib/modules/3.1.9+
 touch /boot/start.elf
@@ -217,6 +218,7 @@ apt-get -y install locales console-common ntp openssh-server less vim
 # execute install script at mounted external media (delivery contents folder)
 cd /usr/src/delivery
 ./install.sh
+cd
 
 echo \"root:raspberry\" | chpasswd
 sed -i -e 's/KERNEL\!=\"eth\*|/KERNEL\!=\"/' /lib/udev/rules.d/75-persistent-net-generator.rules
@@ -238,7 +240,7 @@ rm -f cleanup
 chmod +x cleanup
 LANG=C chroot ${rootfs} /cleanup
 
-cd
+cd ${rootfs}
 
 sync
 sleep 15
