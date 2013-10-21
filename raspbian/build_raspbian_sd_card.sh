@@ -87,7 +87,7 @@ absolute_path=`cd ${relative_path}; pwd`
 delivery_path=`cd ${absolute_path}/../delivery; pwd`
 
 # define destination folder where created image file will be stored
-buildenv=`cd ${absolute_path}; cd ..; mkdir -p rpi; cd rpi; pwd`
+buildenv=`cd ${absolute_path}; cd ..; mkdir -p rpi/images; cd rpi; pwd`
 # buildenv="/tmp/rpi"
 
 # cd ${absolute_path}
@@ -102,7 +102,7 @@ image=""
 if [ "${device}" == "" ]; then
   echo "no block device given, just creating an image"
   mkdir -p ${buildenv}
-  image="${buildenv}/raspbian_basic_${deb_release}_${today}.img"
+  image="${buildenv}/images/raspbian_basic_${deb_release}_${today}.img"
   dd if=/dev/zero of=${image} bs=1MB count=2000
   device=`losetup -f --show ${image}`
   echo "image ${image} created and mounted as ${device}"
