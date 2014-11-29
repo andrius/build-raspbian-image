@@ -245,6 +245,9 @@ cd ${rootfs}
 sync
 sleep 15
 
+# Make sure we're out of the root fs. We won't be able to unmount otherwise, and umount -l will fail silently.
+cd
+
 umount -l ${bootp}
 
 umount -l ${rootfs}/usr/src/delivery
@@ -255,6 +258,9 @@ umount -l ${rootfs}/proc
 
 umount -l ${rootfs}
 umount -l ${rootp}
+
+# Remove device mapper bindings. Avoids running out of loop devices if run repeatedly.
+dmsetup remove_all
 
 echo "finishing ${image}"
 
